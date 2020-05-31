@@ -47,7 +47,7 @@ SEQUENCE:
   TWO_CONV: True
 DATASETS:
   TRAIN: ("synthtext_train",)
-  TEST: ("icdar_2013_test",)
+  TEST: ("icdar_2015_test",)
 DATALOADER:
   SIZE_DIVISIBILITY: 32
   NUM_WORKERS: 4
