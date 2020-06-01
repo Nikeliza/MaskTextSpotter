@@ -1,7 +1,7 @@
 MODEL:
   META_ARCHITECTURE: "GeneralizedRCNN"
-  # WEIGHT: "catalog://ImageNetPretrained/MSRA/R-50"
-  WEIGHT: "./outputs/finetune/model_finetune.pth"
+  WEIGHT: "catalog://ImageNetPretrained/MSRA/R-50"
+  #WEIGHT: "./outputs/finetune/model_finetune.pth"
   BACKBONE:
     CONV_BODY: "R-50-FPN"
     OUT_CHANNELS: 256
@@ -46,7 +46,7 @@ SEQUENCE:
   TEACHER_FORCE_RATIO: 1.0
   TWO_CONV: True
 DATASETS:
-  TRAIN: ("synthtext_train",)
+  TRAIN: ("icdar_2015_train",)
   TEST: ("icdar_2015_test",)
 DATALOADER:
   SIZE_DIVISIBILITY: 32
