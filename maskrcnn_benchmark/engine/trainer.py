@@ -46,8 +46,11 @@ def do_train(
     tb_logger,
     cfg,
 ):
+    print('111111111111111111111')
     logger = logging.getLogger("maskrcnn_benchmark.trainer")
+    print('2222222222222222222222')
     logger.info("Start training")
+    print('4444444444444444444444')
     meters = MetricLogger(delimiter="  ")
     max_iter = len(data_loader)
     start_iter = arguments["iteration"]
