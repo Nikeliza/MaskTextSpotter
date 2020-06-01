@@ -54,10 +54,12 @@ def do_train(
     model.train()
     start_training_time = time.time()
     end = time.time()
+    kkk = 0
     for iteration, (images, targets, _) in enumerate(data_loader, start_iter):
         data_time = time.time() - end
         arguments["iteration"] = iteration
-
+        print(kkk)
+        kkk += 1
         scheduler.step()
 
         images = images.to(device)
@@ -85,6 +87,7 @@ def do_train(
         eta_string = str(datetime.timedelta(seconds=int(eta_seconds)))
 
         if iteration % 20 == 0 or iteration == (max_iter - 1):
+            print(kkk * 10000000)
             logger.info(
                 meters.delimiter.join(
                     [
