@@ -30,7 +30,7 @@ def train(cfg, local_rank, distributed):
     model = build_detection_model(cfg)
     device = torch.device(cfg.MODEL.DEVICE)
     model.to(device)
-
+    print('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
     optimizer = make_optimizer(cfg, model)
     scheduler = make_lr_scheduler(cfg, optimizer)
 
@@ -45,7 +45,7 @@ def train(cfg, local_rank, distributed):
     arguments["iteration"] = 0
 
     output_dir = cfg.OUTPUT_DIR
-
+    print('bbbbbbbbbbbbbbbbbbbbb')
     save_to_disk = get_rank() == 0
     checkpointer = DetectronCheckpointer(
         cfg, model, optimizer, scheduler, output_dir, save_to_disk
@@ -53,14 +53,14 @@ def train(cfg, local_rank, distributed):
     extra_checkpoint_data = checkpointer.load(cfg.MODEL.WEIGHT, resume=cfg.SOLVER.RESUME)
     if cfg.SOLVER.RESUME:
         arguments.update(extra_checkpoint_data)
-
+    print('ccccccccccccccccccccccccccc')
     data_loader = make_data_loader(
         cfg,
         is_train=True,
         is_distributed=distributed,
         start_iter=arguments["iteration"],
     )
-
+    print('dddddddddddddddddddddddddddddd')
     checkpoint_period = cfg.SOLVER.CHECKPOINT_PERIOD
     tb_logger = Logger(cfg.OUTPUT_DIR)
     do_train(
@@ -75,7 +75,7 @@ def train(cfg, local_rank, distributed):
         tb_logger,
         cfg,
     )
-
+    print('eeeeeeeeeeeeeeeeeeeeeeeeeee')
     return model
 
 
@@ -130,12 +130,12 @@ def main():
         default=None,
         nargs=argparse.REMAINDER,
     )
-
+    print('ffffffffffffffffffffffffff')
     args = parser.parse_args()
 
     num_gpus = int(os.environ["WORLD_SIZE"]) if "WORLD_SIZE" in os.environ else 1
     args.distributed = num_gpus > 1
-
+    print('gggggggggggggggggggggg')
     if args.distributed:
         torch.cuda.set_device(args.local_rank)
         torch.distributed.init_process_group(
@@ -162,7 +162,7 @@ def main():
         config_str = "\n" + cf.read()
         logger.info(config_str)
     logger.info("Running with config:\n{}".format(cfg))
-
+    print('hhhhhhhhhhhhhhhhhhhhhhhhhhhh')
     model = train(cfg, args.local_rank, args.distributed)
 
     if not args.skip_test:
