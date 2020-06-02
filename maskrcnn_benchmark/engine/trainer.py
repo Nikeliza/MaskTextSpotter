@@ -61,7 +61,7 @@ def do_train(
     for iteration, (images, targets, _) in enumerate(data_loader, start_iter):
         data_time = time.time() - end
         arguments["iteration"] = iteration
-        print(kkk)
+        #print(kkk)
         kkk += 1
         scheduler.step()
 
