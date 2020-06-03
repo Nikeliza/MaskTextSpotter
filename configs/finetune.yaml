@@ -1,7 +1,7 @@
 MODEL:
   META_ARCHITECTURE: "GeneralizedRCNN"
   # WEIGHT: "./outputs/pretrain/model_pretrain.pth"
-  WEIGHT: "./drive/My Drive/diplom/model_finetune.pth"
+  WEIGHT: "./drive/My Drive/diplom/model.pth"
   #WEIGHT: "catalog://ImageNetPretrained/MSRA/R-50"
   BACKBONE:
     CONV_BODY: "R-50-FPN"
