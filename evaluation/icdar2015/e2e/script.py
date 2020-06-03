@@ -445,7 +445,7 @@ if __name__=='__main__':
     score_rec_seq: score of the sequence recognition branch
     lexicon_type: 1 for generic; 2 for weak; 3 for strong
     '''
-    results_dir = '../../../outputs/finetune/inference/icdar_2015_test/model_finetune_1000_results/'
+    results_dir = '../../../outputs/finetune/inference/icdar_2015_test/model_1000_results/'
     evaluate_result_path = prepare_results_for_evaluation(results_dir, lexicon_type=3, cache_dir='./cache_files', score_det=0.4, score_rec=0.4, score_rec_seq=0.5)
     p = {
         'g': "../gt.zip",  
