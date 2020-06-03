@@ -47,7 +47,8 @@ SEQUENCE:
   TEACHER_FORCE_RATIO: 1.0
   TWO_CONV: True
 DATASETS:
-  TRAIN: ("icdar_2015_train", "icdar_2013_train","scut-eng-char_train","total_text_train")
+  TRAIN: ("icdar_2015_train", "icdar_2013_train","scut-eng-char_train")
+  RATIOS: [0.4,0.4,0.2]
   TEST: ("icdar_2015_test",)
 DATALOADER:
   SIZE_DIVISIBILITY: 32
