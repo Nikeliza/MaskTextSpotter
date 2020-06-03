@@ -1,8 +1,8 @@
 MODEL:
   META_ARCHITECTURE: "GeneralizedRCNN"
   #WEIGHT: "./drive/My Drive/diplom/R-50.pkl"
-  #WEIGHT: "./drive/My Drive/diplom/model_finetune.pth"
-  WEIGHT: "catalog://ImageNetPretrained/MSRA/R-50"
+  WEIGHT: "./drive/My Drive/diplom/model_finetune.pth"
+  #WEIGHT: "catalog://ImageNetPretrained/MSRA/R-50"
   BACKBONE:
     CONV_BODY: "R-50-FPN"
     OUT_CHANNELS: 256
@@ -47,7 +47,7 @@ SEQUENCE:
   TEACHER_FORCE_RATIO: 1.0
   TWO_CONV: True
 DATASETS:
-  TRAIN: ("icdar_2015_train",)
+  TRAIN: ("icdar_2015_train", "icdar_2013_train",)
   TEST: ("icdar_2015_test",)
 DATALOADER:
   SIZE_DIVISIBILITY: 32
